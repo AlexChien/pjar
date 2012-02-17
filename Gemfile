@@ -26,7 +26,7 @@ gem "jquery-rails"
 # rails_admin
 gem 'ckeditor'
 gem 'fastercsv'
-gem 'devise'
+gem 'devise', '1.5.1'
 gem "cancan"
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 
