@@ -40,8 +40,8 @@
       <td width="60%" valign="middle"><div id="center" style="">
           <div id="slider">
             <% @types.each do |type| %>
-            <div class="slide"> <%= link_to image_tag("/images/typeImages/#{type.title_image}", :alt => "#{type.typename}", :class => "diapo"), "/portolios/?type_id=#{type.id}" %>
-              <div class="text"> <a href="/portolios/?type_id=#{type.id}"> <span class="title"><%= type.typename %></span>
+            <div class="slide"> <%= link_to image_tag("/images/typeImages/#{type.title_image}", :alt => "#{type.typename}", :class => "diapo"), "/portfolios/by_type/#{type.id}" %>
+              <div class="text"> <a href="/portfolios/by_type/<%= type.id %>"> <span class="title"><%= type.typename %></span>
                 <div><%= raw type.intro %></div>
                 </a> </div>
             </div>
