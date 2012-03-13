@@ -1,20 +1,17 @@
-set :application, "ccgexpo"
-set :domain,      "114.80.227.186"
-set :repository,  "git@github.com:AlexChien/ccgexpo.git"
+set :application, "unplusdesign"
+set :domain,      "69.164.193.254"
+set :repository,  "git@github.com:AlexChien/pjar.git"
 set :use_sudo,    false
-set :deploy_to,   "/usr/local/www/#{application}"
+set :deploy_to,   "/var/local/www/#{application}"
 set :scm,         "git"
 set :user,        "runner"
-set :runner,      "runner"
-set :rake,        'rake'  #"/opt/ruby-enterprise/bin/rake"
+set :runner,      "nobody"
 set :keep_releases, 5
-set :rvm_ruby_string, 'ree@ccgexpo'
-set :rvm_type, :user
+
 # Whatever you set here will be taken set as the default RAILS_ENV value
 # on the server. Your app and your hourly/daily/weekly/monthly scripts
 # will run with RAILS_ENV set to this value.
 set :rails_env, "production"
-set :bundle_cmd, "bundle" #"/opt/ruby-enterprise/bin/bundle"
 
 # NOTE: for some reason Capistrano requires you to have both the public and
 # the private key in the same folder, the public key should have the
@@ -47,20 +44,10 @@ namespace :deploy do
   # add soft link script for deploy
   desc "Symlink the upload directories"
   after "deploy:symlink", :roles => [:web] do
-    run "ln -s #{shared_path}/ckeditor_assets #{current_release}/public/ckeditor_assets"
-    run "ln -s #{shared_path}/minisite #{current_release}/public/minisite"
-    # symlink assets is done by capistrano interal task
-    # run "ln -s #{shared_path}/assets #{current_release}/public/assets"
-  end
+    # bundle folder link
+    # run "ln -s #{shared_path}/bundle #{current_release}/vendor/bundle"
 
-  desc "Migrate db"
-  task :migrate, :roles => [:web] do
-    run "cd #{latest_release} && #{bundle_cmd} exec #{rake} db:migrate RAILS_ENV=#{rails_env}"
-  end
-
-  desc "Create asset packages for production, minify and compress js and css files"
-  task :asset_packager, :roles => [:web] do
-    # run "cd #{release_path}; RAILS_ENV=p·roduction rake assets:precompile"
+    migrate
   end
 
   task :start, :roles => :app do
@@ -79,32 +66,8 @@ namespace :deploy do
 
   desc "Generate Production database.yml"
   task :database_yml, :roles => [:web] do
-    db_config = "#{shared_path}/config/database.yml.production"
-    run "cp #{db_config} #{release_path}/config/database.yml"
-  end
-
-  namespace :assets do
-    desc <<-DESC
-    Run the asset precompilation rake task. You can specify the full path \
-    to the rake executable by setting the rake variable. You can also \
-    specify additional environment variables to pass to rake via the \
-    asset_env variable. The defaults are:
-
-    set :rake,      "rake"
-    set :rails_env, "production"
-    set :asset_env, "RAILS_GROUPS=assets"
-    DESC
-    task :precompile, :roles => :web, :except => { :no_release => true } do
-      run "cd #{latest_release} && #{bundle_cmd} exec #{rake} RAILS_ENV=#{rails_env} #{asset_env} assets:precompile"
-  end
+    puts "cp #{shared_path}/config/database.yml.production #{release_path}/config/database.yml"
+    run "cp #{shared_path}/config/database.yml.production #{release_path}/config/database.yml"
   end
 
 end
-
-namespace :rvm do
-  task :trust_rvmrc do
-    run "rvm rvmrc trust #{release_path}"
-  end
-end
-
-after "deploy", "rvm:trust_rvmrc"

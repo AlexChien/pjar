@@ -8,4 +8,4 @@ require "bundler/capistrano"
 $:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 
 # Load RVM's capistrano plugin.
-require "rvm/capistrano"
+# require "rvm/capistrano"
