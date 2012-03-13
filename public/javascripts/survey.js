@@ -1,0 +1,1 @@
+document.write('<iframe src="voteSubmit.asp" id="voteFrm" height="210" width="100%" frameborder="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>');

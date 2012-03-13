@@ -3,6 +3,13 @@ Www::Application.routes.draw do
 
   devise_for :users
 
+  get "sites/about_us"
+  get "sites/contact_us"
+  get "sites/join_us"
+
+  match "portfolios" => "portfolios#index", :as => :portfolios
+  match "portfolios/:id(.:format)" => "portfolios#show", :as => :portfolio
+  match "portfolios/by_type/:type_id(.:format)" => "portfolios#by_type", :as => :portfolio_by_type
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -52,7 +59,7 @@ Www::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
 

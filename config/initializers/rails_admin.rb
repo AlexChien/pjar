@@ -16,11 +16,17 @@ RailsAdmin.config do |config|
   # config.audit_with :paper_trail, User
 
   # Set the admin name here (optional second array element will appear in a beautiful RailsAdmin red ©)
-  config.main_app_name = ['CCGExpo', '管理后台']
+  config.main_app_name = ['UnplusDesign', '管理后台']
   # or for a dynamic name:
   # config.main_app_name = Proc.new { |controller| [Rails.application.engine_name.titleize, controller.params['action'].titleize] }
 
+  config.model Portfolio do
 
+  end
+
+  config.model WorkImage do
+
+  end
   #  ==> Global show view settings
   # Display empty fields in show views
   # config.compact_show_view = false

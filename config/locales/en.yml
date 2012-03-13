@@ -2,4 +2,23 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  site:
+    title: "Welcome to UN+ Architects"
+    about_us: "About Us"
+    portfolio: "Portfolio"
+    contact_us: "Contact Us"
+    join_us: "Join Us"
+    cooperation: "Cooperation:IAD"
+    lang_switch_image: "bt_cn.gif"
+    lang_switch_image_on: "bt_cn_on.gif"
+    phone_abbr: "TEL"
+    fax_abbr: "FAX"
+    project_list: "Project List"
+    cons_square5: "Landscape Space"
+    cons_square: "Floor Space"
+    plan_square: "Plan Space"
+    owner: "Owner"
+    cocompany: "Cooperating Company"
+    project_type: "Project Type"
+    bread:
+      home: "home"

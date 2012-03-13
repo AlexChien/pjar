@@ -1,0 +1,57 @@
+<tr bgcolor="#B3B39A">
+  <td height="1" colspan="2"><img src="/images/spacer.gif" width="1" height="1"></td>
+</tr>
+<%
+navs = [
+  {:name => "about_us", :link => "/sites/about_us", :target => "_self"},
+  {:name => "portfolio", :link => "/portfolios/by_type/1", :target => "_self"},
+  {:name => "contact_us", :link => "/sites/contact_us", :target => "_self"},
+  {:name => "join_us", :link => "/sites/join_us", :target => "_self"},
+  {:name => "cooperation", :link => "http://www.iad.cc/", :target => "_blank"}
+]
+%>
+<% navs.each do |node| %>
+  <tr>
+    <td width="15" valign="top">
+      <img src="/images/<%= nav_image_class(node[:name]) %>" width="15" height="13">
+    </td>
+    <td valign="top">
+      <b><a href="<%= node[:link] %>" class="<%= nav_class(node[:name]) %>" target="<%= node[:target] %>"><%= t("site.#{node[:name]}") %></a></b>
+      <% if node[:name] == "portfolio" && params[:controller] == "portfolios" %>
+      <% @building_types = BuildingType.weighted %>
+      <!-- 次导航开始 -->
+      <table width="100%" border="0" cellspacing="2" cellpadding="0">
+        <tbody>
+          <tr>
+            <td colspan="2"><img src="/images/spacer.gif" width="1" height="1"></td>
+          </tr>
+
+          <% @building_types.each do |bt| %>
+          <tr>
+            <td width="8" valign="top">
+              <img src="/images/<%= subnav_image_class(bt.id) %>">
+            </td>
+            <td valign="top" class="<%= subnav_image_class(bt.id) %>">
+              <b><a href="/portfolios/by_type/<%= bt.id %>" class="<%= subnav_class(bt.id) %>"><%= bt.typename %></a></b>
+            </td>
+          </tr>
+          <% end %>
+
+          <tr>
+            <td width="8" valign="top">
+              <img src="/images/<%= subnav_image_class("index") %>">
+            </td>
+            <td valign="top" class="<%= subnav_class("index") %>">
+              <b><a href="/portfolios" class="<%= subnav_class("index") %>"><%= t("site.project_list") %></a></b>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- 次导航结束 -->
+      <% end %>
+    </td>
+  </tr>
+  <tr bgcolor="#B3B39A">
+    <td height="1" colspan="2"><img src="/images/spacer.gif" width="1" height="1"></td>
+  </tr>
+<% end %>

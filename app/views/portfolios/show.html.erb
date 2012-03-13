@@ -1,0 +1,42 @@
+<% content_for :header do -%>
+  <link rel="stylesheet" href="/stylesheets/scroll.css" type="text/css" charset="utf-8">
+  <script src="/javascripts/jquery-1.7.1.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/javascripts/diaposcroll.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript" charset="utf-8">
+    $(function(){
+      $('#lNav').css("height",528)
+      var h = $('#lNav').css('offsetHeight');
+      $('#lSep').css('height',h-28);
+      $('#rSep').css('height',h-28);
+    });
+  </script>
+<% end -%>
+<td width="820" align="left" valign="top" bgcolor="#FFFFFF">
+  <div id="imageFlow">
+    <div class="top"></div>
+    <div class="bank">
+      <% @images.each do |img| %>
+        <a rel="/images/portfolioimages/<%= img.old_large_size %>" title="<%= @portfolio.name %>" href="#"></a>
+      <% end %>
+    </div>
+    <div class="text">
+      <div class="title">Loading</div>
+      <div class="legend">Please wait...</div>
+    </div>
+    <div class="scrollbar"> <img class="track" src="/images/sb.gif" alt=""> <img class="arrow-left" src="/images/sl.gif" alt=""> <img class="arrow-right" src="/images/sr.gif" alt=""> <img class="bar" src="/images/sc.gif" alt=""> </div>
+  </div>
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="25">
+      <tbody><tr>
+        <td>
+          <p>
+            <img src="/images/portfolioimages/TitleImages/<%= @portfolio.title_image %>"><br />
+            <%= raw portfolio_desc_for_xml(@portfolio) %><br /><br />
+            <%= raw @portfolio.detail %>
+          </p>
+          <b><p>&nbsp;</p><p>&nbsp;</p></b>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</td>

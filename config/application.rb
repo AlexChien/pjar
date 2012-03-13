@@ -67,3 +67,11 @@ module Www
     config.assets.version = '1.0'
   end
 end
+
+# fix to_xml bug in xml builder
+class String
+  alias_method :orig_fast_xs, :fast_xs
+  def fast_xs(ignore)
+    orig_fast_xs
+  end
+end

@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>Welcome to DinkumTec.com</title>
+</head>
+
+<body background="02_.png" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<div id="scrollmenu"  style="position:absolute; left:168px; top:510px;  z-index:1"><a href="#top"><img src="top2.gif" hspace="0" vspace="0" border="0"></a></div>
+<script language=javascript>
+<!--
+// 浇扼捞靛
+
+self.onError=null;
+currentX = currentY = 0; 
+whichIt = null; 
+lastScrollX = 0; lastScrollY = 0;
+NS = (document.layers) ? 1 : 0;
+IE = (document.all) ? 1: 0;
+
+var tmp1= tmp2= tmp3 =0;
+tmp1 = document.body.clientHeight;
+function heartBeat() {
+ tmp2 = document.body.clientHeight;
+ if(tmp1 != tmp2)
+ {
+  tmp3 =  tmp2 - tmp1; 
+  tmp1 = tmp2;
+  if(tmp3<0)
+  {
+  }
+ }
+ if(IE) { 
+  diffY = document.body.scrollTop; //胶农费捞 歹捞惑 郴妨啊瘤 臼霸 窍扁 困秦辑 荐沥  
+  diffX = 0;
+  }
+ if(NS) { 
+  diffY = self.pageYOffset;
+  diffX = self.pageXOffset; }
+
+ if(diffY != lastScrollY) {
+  percent = .1 * (diffY - lastScrollY);
+  
+  if(percent > 0) 
+   percent = Math.ceil(percent);
+  else 
+   percent = Math.floor(percent);
+  
+  if(IE) 
+   document.all.scrollmenu.style.pixelTop += percent;
+  if(NS) 
+   document.scrollmenu.top += percent; 
+  
+  lastScrollY = lastScrollY + percent;
+ }
+
+ if(diffX != lastScrollX) {
+  percent = .1 * (diffX - lastScrollX);
+ 
+  if(percent > 0) 
+   percent = Math.ceil(percent);
+  else 
+   percent = Math.floor(percent);
+  
+  if(IE) document.all.scrollmenu.style.pixelLeft += percent;
+  if(NS) document.scrollmenu.top += percent;
+  lastScrollY = lastScrollY + percent;
+ } 
+} 
+if(NS || IE) action = window.setInterval("heartBeat()",1);
+//-->
+</script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr width="100%" height="720">
+    <td width="100%"><img src="02.png" width="990" height="888" border="0" usemap="#Map"></td>
+  </tr>
+</table>
+<map name="Map">
+  <area shape="rect" coords="2,198,164,227" href="03.htm">
+  <area shape="rect" coords="0,227,164,254" href="04.htm">
+  <area shape="rect" coords="2,113,163,197" href="02.htm">
+  <area shape="rect" coords="0,254,163,282" href="05.htm">
+  <area shape="rect" coords="0,282,164,310" href="06.htm">
+  <area shape="rect" coords="0,6,255,113" href="01.htm">
+</map>
+</body></html>

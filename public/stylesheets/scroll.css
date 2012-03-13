@@ -1,0 +1,96 @@
+@charset "utf-8";
+/* CSS Document */
+html {
+		/*overflow: hidden;*/
+	}
+	body {
+		/*margin: 0px;*/
+		padding: 0px;
+		background: #646458;
+		width: 100%;
+		height: 100%;
+	}
+	#imageFlow {
+		position: relative;
+		width: 100%;
+		height: 500px; /*94% ---- 原来是80% ---- */
+		left: 0%;
+		top: 0%;
+		background: #646458;
+		overflow:hidden;
+	}
+	#imageFlow .diapo {
+		position: absolute;
+		left: -1000px;
+		cursor: pointer;
+		-ms-interpolation-mode: nearest-neighbor;
+		max-height: 330px;
+	}
+	
+	* html div#imageFlow .diapo { 
+		height: expression( this.scrollHeight > 480 ? "481px" : "auto" ); /* sets max-height for IE */
+		max-height: 330px; /* sets max-height value for all standards-compliant browsers */
+	}
+	
+	#imageFlow .link {
+		border: dotted #fff 1px;
+		margin-left: -1px;
+		margin-bottom: -1px;
+	}
+	#imageFlow .bank {
+		visibility: hidden;
+	}
+	#imageFlow .top {
+		position: relative;
+		width: 100%;
+		height: 75%;
+		background: #777A66;
+	}
+	#imageFlow .text {
+		position: absolute;
+		left: 0px;
+		width: 100%;
+		bottom: 12%;/* ---- 原来是16 ---- */
+		text-align: center;
+		font-size:12px;
+		color: #FFF;
+		font-family: verdana, arial, Helvetica, sans-serif;
+		z-index: 1000;
+	}
+	#imageFlow .title {
+		font-size: 1.1em;/* ---- 原来是0.9em ---- */
+		font-weight: bold;
+		color:#fff;
+	}
+	#imageFlow .legend {
+		font-size: 1em;/* ---- 原来是0.8em ---- */
+	}
+	#imageFlow .scrollbar {
+		position: absolute;
+		left: 10%;
+		bottom: 5%;/* ---- 原来是10% ---- */
+		width: 80%;
+		height: 16px;
+		z-index: 1000;
+	}
+	#imageFlow .track {
+		position: relative;
+		left: 1%;
+		width: 98%;
+		height: 16px;
+		filter: alpha(opacity=30);
+		opacity: 0.3;
+	}
+	#imageFlow .arrow-left {
+		position: absolute;
+		left:0px;
+	}
+	#imageFlow .arrow-right {
+		position: absolute;
+		right: 0px;
+	}
+	#imageFlow .bar {
+		position: absolute;
+		height: 16px;
+		left: 25px;
+	}

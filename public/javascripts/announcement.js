@@ -1,0 +1,15 @@
+document.write("<li>");
+document.write("<a href='#' class='txt_w' onMouseDown=MM_openBrWindow('../pop/pop_2.jsp?psid=707&pstype=3','','scrollbars=yes,width=616')>上汽工会举行特色工作成果发布 李积荣主席讲话</a>");
+document.write("</li>");
+document.write("<br>");
+document.write("<br>");
+document.write("<li>");
+document.write("<a href='#' class='txt_w' onMouseDown=MM_openBrWindow('../pop/pop_2.jsp?psid=706&pstype=3','','scrollbars=yes,width=616')>上汽举行工会特色工作成果发布</a>");
+document.write("</li>");
+document.write("<br>");
+document.write("<br>");
+document.write("<li>");
+document.write("<a href='#' class='txt_w' onMouseDown=MM_openBrWindow('../pop/pop_2.jsp?psid=705&pstype=3','','scrollbars=yes,width=616')>葛辰罡、沈醒分获上海“灰领”</a>");
+document.write("</li>");
+document.write("<br>");
+document.write("<br>");
