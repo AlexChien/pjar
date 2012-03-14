@@ -6,6 +6,7 @@ RailsAdmin.config do |config|
   # If your default_local is different from :en, uncomment the following 2 lines and set your default locale here:
   # require 'i18n'
   # I18n.default_locale = :de
+  config.excluded_models = ["BuildingType","Ckeditor::Asset","Ckeditor::AttachmentFile","Ckeditor::Picture"]
 
   config.current_user_method { current_user } # auto-generated
 
@@ -21,11 +22,37 @@ RailsAdmin.config do |config|
   # config.main_app_name = Proc.new { |controller| [Rails.application.engine_name.titleize, controller.params['action'].titleize] }
 
   config.model Portfolio do
-
+    %w(old_cover_image old_title_image lang_swtich).each do |fd|
+      field fd.to_sym do
+        visible false
+      end
+    end
+    include_all_fields
+    list do
+      field :id
+      field :name_cn
+      field :name_en
+      field :building_type
+      field :project_type
+    end
   end
 
   config.model WorkImage do
+    list do
+      field :id
+      field :image
+      field :portfolio
+      field :title_cn
+      field :title_en
+    end
+  end
 
+  config.model Site do
+    Site.content_columns.collect{ |r| r if r.type == :text}.compact.each do |r|
+      field r.name, :text do
+        ckeditor true
+      end
+    end
   end
   #  ==> Global show view settings
   # Display empty fields in show views

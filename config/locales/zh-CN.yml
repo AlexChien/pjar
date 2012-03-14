@@ -160,6 +160,10 @@
       upload: "资源"
       role: "权限"
       translator: "语言"
+      building_type: "建筑类型"
+      portfolio: "项目"
+      site: "站点内容"
+      work_image: "项目图片"
 
     attributes:
       panel:
@@ -222,6 +226,63 @@
       translator:
         name: "语言"
         constant: "简称"
+      building_type:
+        typename_cn: 名称（中文）
+        typename_en: 名称（英文）
+        title_image: 标题图片
+        intro_cn: 简介（中文）
+        intro_en: 简介（英文）
+        weight: 权重
+        created_at: 创建时间
+        updated_at: 更新时间
+      portfolio:
+        name_en: "项目名称（英文）"
+        name_cn: "项目名称（中文）"
+        building_type: "建筑类型"
+        cover_image: "封面图片"
+        title_image: "标题图片"
+        project_type_cn: "项目类型（中文）"
+        project_type_en: "项目类型（英文）"
+        begin_time: "开始时间"
+        end_time: "结束时间"
+        owner_cn: "委托人（中文）"
+        owner_en: "委托人（英文）"
+        location_cn: "位置（中文）"
+        location_en: "位置（英文）"
+        result_cn: "成果（中文）"
+        result_en: "成果（英文）"
+        detail_cn: "详细介绍（中文）"
+        detail_en: "详细介绍（英文）"
+        lang_switch: "语言切换"
+        weight: "权重"
+        cons_square_cn: "建筑面积（中文）"
+        cons_square_en: "建筑面积（英文）"
+        plan_square_cn: "规划面积（中文）"
+        plan_square_en: "规划面积（英文）"
+        cocompany_cn: "合作单位（中文）"
+        cocompany_en: "合作单位（英文）"
+        pno: "PNO"
+        created_at: "创建时间"
+        updated_at: "更新时间"
+        work_images: "项目图片"
+      site:
+        about_us_cn: "关于我们（中文）"
+        about_us_en: "关于我们（英文）"
+        contact_us_cn: "联系我们（中文）"
+        contact_us_en: "联系我们（英文）"
+        join_us_cn: "加入我们（中文）"
+        join_us_en: "加入我们（英文）"
+        created_at: "创建时间"
+        updated_at: "更新时间"
+      work_image:
+        portfolio: "项目"
+        title_cn: "图片标题（中文）"
+        title_en: "图片标题（英文）"
+        desc_cn: "描述（中文）"
+        desc_en: "描述（英文）"
+        created_at: "创建时间"
+        updated_at: "更新时间"
+        image: "图片"
 
   site_name: "CCGExpo网站"
   search_name: "搜索"

@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :set_locale
 
+  layout :layout_by_resource
+
   def set_locale
     session[:locale] = params[:locale] if params[:locale]
     I18n.locale = session[:locale] || I18n.default_locale
@@ -23,4 +25,10 @@ class ApplicationController < ActionController::Base
     flash.now[:error] = msg
     render :text => '', :layout => !request.xhr?, :status => 500
   end
+
+  protected
+  def layout_by_resource
+    devise_controller? ? "devise" : "application"
+  end
+
 end

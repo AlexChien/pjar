@@ -4,4 +4,7 @@ class BuildingType < ActiveRecord::Base
 
   scope :weighted, order("weight desc")
 
+  def name
+    self.typename
+  end
 end

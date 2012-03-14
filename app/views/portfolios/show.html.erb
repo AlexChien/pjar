@@ -16,7 +16,7 @@
     <div class="top"></div>
     <div class="bank">
       <% @images.each do |img| %>
-        <a rel="/images/portfolioimages/<%= img.old_large_size %>" title="<%= @portfolio.name %>" href="#"></a>
+        <a rel="<%= img.image(:standard) %>" title="<%= @portfolio.name %>" href="#"></a>
       <% end %>
     </div>
     <div class="text">
@@ -30,7 +30,7 @@
       <tbody><tr>
         <td>
           <p>
-            <img src="/images/portfolioimages/TitleImages/<%= @portfolio.title_image %>"><br />
+            <img src="<%= @portfolio.title_image(:standard) %>"><br />
             <%= raw portfolio_desc_for_xml(@portfolio) %><br /><br />
             <%= raw @portfolio.detail %>
           </p>
