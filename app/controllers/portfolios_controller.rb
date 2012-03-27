@@ -1,6 +1,6 @@
 class PortfoliosController < ApplicationController
   def index
-    @portfolios = Portfolio.latest
+    @portfolios = Portfolio.weighted.latest
   end
 
   def show
@@ -11,7 +11,7 @@ class PortfoliosController < ApplicationController
 
   def by_type
     @type_id = params[:type_id]
-    @portfolios = Portfolio.by_type(@type_id)
+    @portfolios = Portfolio.weighted.by_type(@type_id)
 
     respond_to do |format|
       format.html
