@@ -28,12 +28,23 @@ RailsAdmin.config do |config|
       end
     end
     include_all_fields
+    %w(detail_cn detail_en).each do |fd|
+      field fd.to_sym, :text do
+        ckeditor true
+      end
+    end
     list do
       field :id
       field :name_cn
       field :name_en
       field :building_type
       field :project_type
+      field :detail_cn do
+        visible false
+      end
+      field :detail_en do
+        visible false
+      end
     end
   end
 
