@@ -51,6 +51,8 @@ RailsAdmin.config do |config|
   end
 
   config.model WorkImage do
+    exclude_fields :old_small_size, :old_large_size
+
     list do
       field :id
       field :image
